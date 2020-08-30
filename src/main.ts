@@ -8,5 +8,9 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    this.$store.dispatch('visit/LOAD_PAGE_VISITS')
+    this.$store.dispatch('visit/INIT_PAGE_VISITS')
+  }
 }).$mount('#app')

@@ -1,12 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link v-for="(route, index) in routes" :key="route.path" :to="route.path">
+        {{index? ' | ': ''}}{{route.name}}
+      </router-link>
+    </div>
+    <div>
+      {{pageVisit.page}} has {{pageVisit.count }} visits
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Vue from 'vue'
+export default Vue.extend({
+  computed: {
+    pageVisit() {
+      return this.$store.getters['visit/pageCount'](this.$route.name)
+    },
+    routes() {
+      return this.$router.options.routes
+    }
+  }
+})
+</script>
 
 <style>
 #app {
