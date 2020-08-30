@@ -1,12 +1,12 @@
 # SPA Page Visit Counter
 
-Real time Page visit counter for Single Page Application (Vue.js, React.js etc.) using Firebase. This is a starter example project using Vue-cli (Typescript), Vuex, Vue-router and Firebase. 
+Real time Page visit counter for Single Page Application (Vue.js, React.js etc.) using Firebase. This is a starter example project using Vue-cli (Typescript), Vuex, Vue-router and Firebase (Cloud Firestore). 
 
 ## Project setup
 ```
 yarn install
 ```
-Replace .env.example with .env and add your firebase credintials there
+Replace .env.example with .env and add your firebase credintials there.
 In src/store/modules/PageVisit.ts  replace the 'www.example.com' with your desired firebase collection name (better to use your domain name).
 ```
 const dbRef = db.collection('www.example.com') 
@@ -16,7 +16,7 @@ You can access the Vuex state variable for this page visit counter state like be
 this.$store.state.visit.pageVisits
 ```
 
-You can use any of the below written property of a page visit information in your vuejs component that stored in an document of firebase
+You can use any of the below written property of a page visit information in your vuejs component that stored in an document of cloud firestore
 ```
 { id, page, count, created, updated }
 ```
