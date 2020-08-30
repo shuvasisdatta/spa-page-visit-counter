@@ -30,6 +30,12 @@ computed: {
 }
 ```
 
+By default it doesn't increament the page count that you visited already within 8 hours. After 8 hours it will increment the page count you visits. You can modify the timing '8 * 60 * 60 * 1000' in src/routes/index.ts file where 8 is the hour and the time is in miliseconds 
+
+```
+const routesExpired: number = 8 * 60 * 60 * 1000  // 8 hours -> converted to miliseconds
+```
+
 ### Compiles and hot-reloads for development
 ```
 yarn serve
